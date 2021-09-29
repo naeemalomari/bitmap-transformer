@@ -2,7 +2,6 @@ package bitmap.transformer;
 
 //
 import javax.imageio.ImageIO;
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -23,8 +22,8 @@ public class Bitmap {
         try {
             File file = new File(this.inputFilePath);
             this.image = ImageIO.read(file);
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (IOException ioException) {
+            ioException.getMessage();
             return false;
         }
         return true;
@@ -34,8 +33,8 @@ public class Bitmap {
         try {
             File outputFile = new File(this.outputFilePath + this.newFileName);
             ImageIO.write(this.image, "bmp", outputFile);
-        } catch (IOException e) {
-            System.out.println("File not found");
+        } catch (IOException ioException) {
+            ioException.getMessage();
             return false;
         }
         return true;
@@ -49,7 +48,6 @@ public class Bitmap {
         for (int h = 1; h < height; h++) {
             for (int w = 1; w < width; w++) {
                 int color = this.image.getRGB(w,h);
-//                int alpha = (p>>24)&0xff;
                 int red = (color>>16)&0xff;
                 int green = (color>>8)&0xff;
                 int blue = color&0xff;
@@ -63,6 +61,8 @@ public class Bitmap {
         return true;
     }
 
+
+
     public int imageFlipHorizontal() {
         int lastRGBVal = 0;
         int height = this.image.getHeight();
@@ -75,6 +75,8 @@ public class Bitmap {
         }
         return lastRGBVal;
     }
+
+
 
     public int imageFlipVertical() {
         int lastRGBVal = 0;
