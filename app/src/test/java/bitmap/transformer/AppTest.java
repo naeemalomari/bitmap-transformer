@@ -5,12 +5,22 @@
 
 
 package bitmap.transformer;
+
 import org.junit.jupiter.api.Test;
 
-class AppTest {
-    @Test void grayScale() {
-        App test = new App();
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
+class AppTest {
+     @Test void grayScale() {
+        Bitmap test = new Bitmap("C:\\Users\\Student\\401Java\\bitmap-transformer\\app\\src\\main\\resources\\Input\\inputImage.bmp","C:\\Users\\Student\\401Java\\bitmap-transformer\\app\\src\\main\\resources\\Output\\", "first.bmp");
+        assertEquals(true, test.readFile());
+
+        Bitmap bitmap = new Bitmap();
+        bitmap.setOutputFilePath("C:\\Users\\Student\\401Java\\bitmap-transformer\\app\\src\\main\\resources\\Output\\");
+        bitmap.setInputFilePath("C:\\Users\\Student\\401Java\\bitmap-transformer\\app\\src\\main\\resources\\Input\\inputImage.bmp");
+        bitmap.setNewFileName("first.bmp");
+
+        assertEquals(bitmap, test);
 
     }
 }

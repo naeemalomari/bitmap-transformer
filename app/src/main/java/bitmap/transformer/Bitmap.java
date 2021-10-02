@@ -12,10 +12,45 @@ public class Bitmap {
     private String newFileName;
     private BufferedImage image = null;
 
+    public Bitmap(){}
+
+
     public Bitmap(String inputFilePath, String outputFilePath, String newFileName) {
         this.inputFilePath = inputFilePath;
         this.outputFilePath = outputFilePath;
         this.newFileName = newFileName;
+    }
+
+    public String getInputFilePath() {
+        return inputFilePath;
+    }
+
+    public void setInputFilePath(String inputFilePath) {
+        this.inputFilePath = inputFilePath;
+    }
+
+    public String getOutputFilePath() {
+        return outputFilePath;
+    }
+
+    public void setOutputFilePath(String outputFilePath) {
+        this.outputFilePath = outputFilePath;
+    }
+
+    public String getNewFileName() {
+        return newFileName;
+    }
+
+    public void setNewFileName(String newFileName) {
+        this.newFileName = newFileName;
+    }
+
+    public BufferedImage getImage() {
+        return image;
+    }
+
+    public void setImage(BufferedImage image) {
+        this.image = image;
     }
 
     public boolean readFile() {
@@ -92,4 +127,15 @@ public class Bitmap {
 
         return lastRGBVal;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        Bitmap bitmap = (Bitmap) obj;
+        if (this.getInputFilePath().equals(bitmap.inputFilePath) && this.outputFilePath.equals(bitmap.getOutputFilePath()) && this.newFileName.equals(bitmap.newFileName)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }
