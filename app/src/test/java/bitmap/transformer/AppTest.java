@@ -12,14 +12,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class AppTest {
      @Test void grayScale() {
-        Bitmap test = new Bitmap("./app/src/main/resources/Input/inputImage.bmp","./app/src/main/resources/Output/", "first.bmp");
-        assertEquals(true, test.readFile());
 
+        Bitmap test = new Bitmap("./app/src/main/resources/Input/inputImage.bmp","./app/src/main/resources/Onput/", "first.bmp");
+        assertEquals(true, test.readFile());
         Bitmap bitmap = new Bitmap();
-        bitmap.setOutputFilePath("./app/src/main/resources/Output/");
+        bitmap.setOutputFilePath("./app/src/main/resources/Onput/");
         bitmap.setInputFilePath("./app/src/main/resources/Input/inputImage.bmp");
         bitmap.setNewFileName("first.bmp");
-
         assertEquals(bitmap, test);
 
     }
